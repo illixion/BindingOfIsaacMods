@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Concrete scrape when slow</name>
+    <directory>concretescrapingwhenslow</directory>
+    <id>2944990611</id>
+    <description>Adds realistic sounds to Isaac's movement with low speed stat.
+
+This mod adds a concrete scrape SFX while Isaac is moving with a 0.6 speed stat or lower. Pitch will change with movement speed. Settings can be adjusted through the mod config menu.
+
+[hr][/hr]
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
+    <version>1.2</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Sound Effects"/>
+</metadata>

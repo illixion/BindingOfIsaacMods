@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Inseparable Jacob &amp; Esau Plus</name>
+    <directory>inseparableje+</directory>
+    <id>2730219441</id>
+    <description>Tired of your characters getting separated by obstacles? Tire no more.
+
+This mod adds an invisible tether to Jacob &amp; Esau (as well as characters with J&amp;E movement like Strawman, Soul of J&amp;E and others), making it so that if they become separated, they'll be pulled back together. And if they're teleported away from each other (when using Stitches for example), they'll be teleported back together. Drop key will disable this behavior, so you're still able to cheese multi-choice item rooms and the like.
+
+[h1]Features:[/h1]
+[list]
+ [*] Esau will no longer get stuck on the environment;
+ [*] Realigning during combat is significantly easier;
+ [*] Getting knocked back won't separate you;
+ [*] Flight is no longer a run ruiner;
+ [*] Co-op is also supported.
+[/list]
+
+All in all, this mod makes Jacob&amp;Esau [i]much[/i] nicer to play. Let me know if you have any issues with this mod in the comments.
+
+[hr][/hr]
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.
+
+This mod was inspired by [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2497530049]Inseperable Jacob and Esau[/url] created by [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2494704952]Don't Need No Cheese[/url]. I rewrote the mod to fix some bugs and add more features, but credit for the idea goes to them.</description>
+    <version>1.16</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Player Characters"/>
+    <tag id="Tweaks"/>
+</metadata>

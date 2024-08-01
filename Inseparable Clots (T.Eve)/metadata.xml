@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Inseparable Clots for Tainted Eve</name>
+    <directory>inseparable_clots</directory>
+    <id>2784121778</id>
+    <description>Tired of clots getting stuck on obstacles? Tire no more.
+
+This mod adds an invisible tether to blood clots obtained using the Sumptorium (or Lil Clot), making it so that if they become separated from your character, they'll be pulled back. And if you're teleported away from them (when using Stitches for example), they'll be teleported back to you. Drop key will disable this behavior as expected.
+
+I've attempted to make this mod as faithful to the original concept as possible, so the clots will retain their normal distance from each other like in the vanilla game, and generating too many is still risky.
+
+All in all, this mod makes using clots [i]much[/i] nicer to play with. This mod can calso be disabled for Tainted Eve, which allows her Sumptorium clot recall to deal damage as normal. Let me know if you have any issues with this mod in the comments.
+
+[hr][/hr]
+
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
+    <version>1.1</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Player Characters"/>
+</metadata>

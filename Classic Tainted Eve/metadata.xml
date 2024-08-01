@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>classictaintedeve</name>
+    <directory>classictaintedeve</directory>
+    <id>2812197477</id>
+    <description>This mod prevents the decay of Tainted Eve's blood clots, which is a gameplay mechanic introduced in Repentance V1.7.5.
+
+[hr][/hr]
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
+    <version>1.1</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Player Characters"/>
+    <tag id="Tweaks"/>
+</metadata>

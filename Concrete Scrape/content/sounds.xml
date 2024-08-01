@@ -1,0 +1,5 @@
+<sounds root="sfx/">
+    <sound name="Concrete Scrape Loop">
+        <sample weight="1" path="concrete-scrape.wav" />
+    </sound>
+</sounds>

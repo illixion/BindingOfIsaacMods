@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Static Bag of Crafting</name>
+    <directory>classicbagofcrafting</directory>
+    <id>2830397038</id>
+    <description>This mod makes BoC use a static seed for item generation, meaning that all recipes will always be identical between runs. This (mostly) restores the old behavior of Tainted Cain before Repentance v.1.7.5.
+
+Extended Item Descriptions are supported, but you need to be holding the bag above your head for EID to detect the static run seed before it can generate correct recipes. You can also use [url=https://platinumgod.co.uk/bag-of-crafting/index.html]this generator website[/url] as an alternative to EID (enter [b]RCNA TDJN[/b] as the run seed.)
+
+Please note that due to technical limitations, the recipes may change if you add any custom items through other mods. You can find out if you have custom items installed by searching for &quot;items.xml&quot; in the &quot;mods&quot; folder in the Binding of Isaac installation folder. A troubleshooting console command &quot;sboctest&quot; is also included to check whether you're affected by this limitation.
+
+[hr][/hr]
+
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]!</description>
+    <version>1.2</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Active Items"/>
+    <tag id="Tweaks"/>
+</metadata>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Item Schema Fix</name>
+    <directory>! item schema fix</directory>
+    <id>3010645321</id>
+    <description>Ensures that the game uses an up-to-date version of the item schema (items.xml), fixing many issues that some outdated mods cause, for example:
+
+[list]
+ [*] Black Bean farting infinitely upon hit;
+ [*] My Shadow doing nothing;
+ [*] Breath of Life doing nothing;
+ [*] My Reflection and Ouija Board not giving their stat upgrades immediately.
+[/list]
+
+[b]Repentance only.[/b]
+
+The technical explanation behind the issue is that some mods ship an outdated item schema, which doesn't have the most recent changes to items, meaning that some fields like the Black Bean cooldown end up missing. My mod just adds the most up-to-date item schema to the top of the mod list, ensuring that it is used for existing items instead.
+
+Please note that I haven't tested this with every mod out there, so some of them may not work as expected when combined with this one. If you still encounter any of the issues mentioned above with this mod installed, please let me know and I'll look into it.
+
+[hr][/hr]
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
+    <version>1.1</version>
+    <visibility>Public</visibility>
+    <tag id="Items"/>
+    <tag id="Active Items"/>
+    <tag id="Tweaks"/>
+</metadata>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Directional Coin Gravity for T. Keeper</name>
+    <directory>directional coin gravity for tk</directory>
+    <id>2830018896</id>
+    <description>This mod makes coins dropped by enemies killed by Tainted Keeper drop towards him instead of in random directions.
+
+To keep T. Keeper from becoming completely overpowered, coin direction will only change when he's hurt. This can be changed under Mod Config menu by disabling &quot;balanced mode.&quot;
+
+This mod is different from magnet items as this doesn't change coin drop speed or distance, only the direction. This is also not the same as T. Keeper's Birthright, which sucks in nearby coins at high speed.
+
+[hr][/hr]
+
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
+    <version>1.2</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Tweaks"/>
+</metadata>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Active Auto Use</name>
+    <directory>activeautouse</directory>
+    <id>2787914288</id>
+    <description>This mod allows you to toggle automatic usage of your active item by holding the space bar or use button on a controller. Once auto use is enabled, the item will automatically be used as soon as it's fully charged. No longer will you have to remember to keep using Guppy's Head, Book of Sin or any other item, especially with 4.5 Volt.
+
+[h1]Features:[/h1]
+[list]
+ [*] Allows you to toggle automatic usage of active items;
+ [*] Items in the second Schoolbag slot can be auto used as well;
+ [*] Items with no charge bar can't be auto used;
+ [*] Items with a button hold mechanic (Breath of Life, Spin to Win) can't be auto used too;
+ [*] Custom character support can be enabled through Mod Config Menu;
+ [*] Co-op is supported.
+[/list]
+
+[hr][/hr]
+If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
+    <version>1.12</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Active Items"/>
+    <tag id="Tweaks"/>
+</metadata>
