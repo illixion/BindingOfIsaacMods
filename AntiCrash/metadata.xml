@@ -5,19 +5,40 @@
     <id>2784448102</id>
     <description>Have you ever had a [i]truly[/i] broken build where you were afraid to attack anything because the game would crash or freeze? This mod solves this issue, letting you enjoy the game without the anxiety of that ruining your run.
 
-After your game crashes once, AntiCrash will begin protecting your run by preventing certain visual effects from occurring and limiting the amount of lasers on-screen. Due to how this game works, doing so results in a much more stable experience while still maintaining a good level of performance. AntiCrash also checks for item builds that are known to always crash the game due to various bugs and warns you if you have one, as well as making the Tear Detonator safer to use.
+After your game crashes once (or if enabled through [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2681875787]MCM[/url]), AntiCrash will begin protecting your run by preventing certain visual effects from occurring and limiting the amount of lasers on-screen. Due to how this game works, doing so results in a much more stable experience while still maintaining a good level of performance. AntiCrash also checks for item builds that are known to always crash the game due to various bugs and warns you if you have one, as well as making the Tear Detonator safer to use.
 
 You can always see if AntiCrash is enabled for the current run via a presence of a purple dot in the bottom left of the screen, and a red dot while it's actively working.
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2681875787]Mod Config Menu[/url] support is included, so you can toggle the mod and adjust settings with ease.
 
+[h1]Features:[/h1]
+[list]
+ [*] Prevents consistent crashes due to Haemolacria + Technology + Parasite;
+ [*] Notifies when the game is about to crash due to C Section + tear freeze effect + tear mimic familiar + melee item bug;
+ [*] Prevents consistent crashes due to too many EFFECT entities on screen;
+ [*] Prevents consistent crashes due to having too many tears with certain modifiers like Ocular Rift on screen;
+ [*] Prevents consistent crashes due to Tear Detonator creating way too many tears in some cases;
+ [*] Prevents occasional crashes due to having too many lasers on screen;
+ [*] Limits visual clutter;
+ [*] Only activates when it is needed, ensuring smooth gameplay;
+ [*] Compatible with almost all other mods on the Workshop.
+[/list]
+
 Disclaimer: AntiCrash does not eliminate all possible crashes from the game, and it will sacrifice some performance for stability while active.
 
 If you've encountered a crash with this mod installed and would like for me to look into it, please check this Discussion thread for info on how to report it: [url=https://steamcommunity.com/workshop/filedetails/discussion/2784448102/3265680184989696685/]Bug reports[/url].
 
+The following console commands can also be used for troubleshooting and testing:
+[list]
+ [*] actest - gives player a known broken item build and enables AntiCrash for testing;
+ [*] acshow - show current entity counts;
+ [*] acdebug - write verbose logs to the game's log file;
+ [*] acenable/acdisable - toggle mod through console.
+[/list]
+
 [hr][/hr]
 If you've enjoyed this mod, check out my other mods [url=https://steamcommunity.com/workshop/filedetails/?id=2784126187]in this list[/url]! Also, consider leaving a like so that others can also find and enjoy this mod.</description>
-    <version>1.16</version>
+    <version>1.17</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Tweaks"/>

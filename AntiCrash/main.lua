@@ -1,7 +1,7 @@
 local antiCrash = RegisterMod("AntiCrash", 1)
 local json = require("json")
 
-local VERSION = "1.17"
+local VERSION = "1.18"
 
 local showActivity = 0
 local printWarning = 0
@@ -14,11 +14,10 @@ local showCount = false
 
 -- Safe mode vars
 -- TODO: unfinished, needs UI and more testing
--- local frameTime = 0
--- local frameCount = 0
--- local prevFrameTime = Isaac.GetTime()
--- local safeModeDisabled = false
--- local safeModeActivated = false
+local frameTime = 0
+local frameCount = 0
+local prevFrameTime = Isaac.GetTime()
+local safeModeActivated = true
 
 -- built-in entity caps:
 -- tears: 512
@@ -67,7 +66,7 @@ local deletableEffects = {
 
 local persistentData = {}
 local defaultConfig = {
-    configVersion = 2,
+    configVersion = 3,
     enabled = false,
     lastSeed = nil,
     exitedCleanly = true,
@@ -75,6 +74,8 @@ local defaultConfig = {
     saferTearDetonator = true,
     improveModCompatibility = false,
     superMode = false,
+    alwaysOn = false,
+    debug = false,
 }
 
 local itemCount = 0
@@ -99,27 +100,29 @@ function antiCrash:onRender()
     end
 
     -- Safe mode (TODO unfinished)
-    -- local currentTime = Isaac.GetTime()
-    -- frameCount = frameCount + 1
-    -- if (frameCount % 5 == 0) then
-    --     frameTime = currentTime - prevFrameTime
-    --     if (
-    --         frameTime > 1000
-    --         and Game():IsPaused() == false
-    --     ) then
-    --         antiCrash:log("slowdown detected, frame time was " .. frameTime)
-    --         safeModeActivated = true
-    --     end
-    -- else
-    --     prevFrameTime = currentTime
-    -- end
+    if (debugMode) then
+        local currentTime = Isaac.GetTime()
+        frameCount = frameCount + 1
+        if (frameCount % 5 == 0) then
+            frameTime = currentTime - prevFrameTime
+            if (
+                frameTime > 1000
+                and Game():IsPaused() == false
+            ) then
+                if (debugMode) then
+                    antiCrash:log("slowdown detected, frame time was " .. frameTime)
+                end
+                safeModeActivated = true
+            end
+        else
+            prevFrameTime = currentTime
+        end
+    end
 
     -- Safe mode UI
-    -- if (safeModeActivated) then
-    --     Isaac.RenderText("[ AntiCrash ]", 50, 30, 0.6, 0.10, 0.10, 0.9)
-    --     Isaac.RenderText("Safe mode prompt text", 50, 45, 1, 1, 1, 0.9)
-    --     Isaac.RenderText("Allan please add details", 50, 60, 0.5, 0.5, 0.5, 0.9)
-    -- end
+    if (safeModeActivated and showCount) then
+        Isaac.RenderText("\007", 8, 260, 0.8, 0.8, 0.8, 0.6)
+    end
 
     -- UI
     if (not temporaryDisable and persistentData["enabled"]) then
@@ -167,7 +170,7 @@ function antiCrash:onRender()
     end
     if (showCount) then
         Isaac.RenderScaledText("[AntiCrash] Debug", 3, 235, 0.5, 0.5, 0.6, 0.1, 0.1, 1)
-        -- Isaac.RenderScaledText("Frame time: " .. frameTime .. "ms", 3, 240, 0.5, 0.5, 1, 1, 1, 0.7)
+        Isaac.RenderScaledText("Frame time: " .. frameTime .. "ms", 3, 240, 0.5, 0.5, 1, 1, 1, 0.7)
         Isaac.RenderScaledText("Tears: " .. Isaac.CountEntities(nil, EntityType.ENTITY_TEAR) .. " (TD limit: " .. entityLimits[EntityType.ENTITY_TEAR] .. ")", 3, 245, 0.5, 0.5, 1, 1, 1, 0.7)
         Isaac.RenderScaledText("Lasers: " .. Isaac.CountEntities(nil, EntityType.ENTITY_LASER) .. " (limit: " .. entityLimits[EntityType.ENTITY_LASER] .. ")", 3, 250, 0.5, 0.5, 1, 1, 1, 0.7)
         Isaac.RenderScaledText("Effects: " .. Isaac.CountEntities(nil, EntityType.ENTITY_EFFECT) .. " (limit: " .. entityLimits[EntityType.ENTITY_EFFECT] .. ")", 3, 255, 0.5, 0.5, 1, 1, 1, 0.7)
@@ -359,6 +362,10 @@ function antiCrash:loadConfiguration()
         end
     end
 
+    if (persistentData["alwaysOn"]) then
+        persistentData["enabled"] = true
+    end
+
     antiCrash:SaveData(json.encode(persistentData))
 end
 
@@ -367,6 +374,22 @@ end
 function antiCrash:onGameStart()
     antiCrash:loadConfiguration()
 
+    -- detect mod compat mode
+    if (not persistentData["improveModCompatibility"]) then
+        entityLimits = lowEntityLimits
+    else
+        entityLimits = highEntityLimits
+    end
+
+    if (persistentData["debugMode"]) then
+        debugMode = true
+        showCount = true
+    end
+
+    if (persistentData["alwaysOn"]) then
+        return
+    end
+    
     if (not persistentData["enabled"] and not persistentData["exitedCleanly"]) then
         antiCrash:log("Did not exit cleanly, activating")
         printWarning = 650
@@ -391,13 +414,6 @@ function antiCrash:onGameStart()
     persistentData["exitedCleanly"] = false
 
     antiCrash:SaveData(json.encode(persistentData))
-
-    -- detect mod compat mode
-    if (not persistentData["improveModCompatibility"]) then
-        entityLimits = lowEntityLimits
-    else
-        entityLimits = highEntityLimits
-    end
 end
 
 function antiCrash:onGameEnd()
@@ -477,6 +493,29 @@ if ModConfigMenu then
 			end,
 			Info = {"Disable crash detection for current run."}
 	})
+    -- Always on
+    ModConfigMenu.AddSetting(modSettings, "Settings", 
+		{
+			Type = ModConfigMenu.OptionType.BOOLEAN,
+			CurrentSetting = function()
+				return persistentData["alwaysOn"]
+			end,
+			Display = function()
+				local onOff = "No"
+				if persistentData["alwaysOn"] then
+					onOff = "Yes"
+				end
+				return 'Always on: ' .. onOff
+			end,
+			OnChange = function(currentBool)
+                antiCrash:log("alwaysOn changed to " .. tostring(currentBool))
+				persistentData["enabled"] = currentBool
+                persistentData["alwaysOn"] = currentBool
+                persistentData["exitedCleanly"] = currentBool
+                antiCrash:SaveData(json.encode(persistentData))
+			end,
+			Info = {"Disable crash detection, always keep mod active. May cause visual issues."}
+	})
     -- Safer tear detonator
     ModConfigMenu.AddSetting(modSettings, "Settings", 
 		{
@@ -522,7 +561,7 @@ if ModConfigMenu then
                     entityLimits = lowEntityLimits
                 end
 			end,
-			Info = {"Disable optimizations to improve mod compatibility. Lowers performance."}
+			Info = {"Disable optimizations to improve mod compatibility. Lowers performance considerably."}
 	})
     -- Mod compatibility
     ModConfigMenu.AddSetting(modSettings, "Settings", 
@@ -540,10 +579,12 @@ if ModConfigMenu then
 			end,
 			OnChange = function(currentBool)
                 antiCrash:log("debugMode changed to " .. tostring(currentBool))
-				debugMode = currentBool
+				persistentData["debugMode"] = currentBool
+                debugMode = currentBool
                 showCount = currentBool
+                antiCrash:SaveData(json.encode(persistentData))
 			end,
-			Info = {"Enable verbose logging and additional on-screen info. Turns off after a game restart."}
+			Info = {"Enable verbose logging and additional on-screen info."}
 	})
 end
 
